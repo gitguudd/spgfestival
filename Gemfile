@@ -25,8 +25,14 @@ gem 'puma', '~> 3.0'
 gem 'rack-cors'
 
 group :development, :test do
+
+  # add for factories and faking out data
+  gem 'factory_girl'
+  gem 'faker'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry'
 
   # we want to use rsspec and rspec-rails
   gem 'rspec'
