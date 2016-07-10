@@ -50,4 +50,9 @@ RSpec.configure do |config|
 
   # Adding support for factory_girl
   Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+  config.include FactoryGirl::Syntax::Methods
+
+  config.before(:all) do
+    FactoryGirl.reload
+  end
 end
