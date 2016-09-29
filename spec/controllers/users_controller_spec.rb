@@ -7,7 +7,17 @@ describe UsersController do
 
     it 'should respond with a 201' do
       post :create, params: params
-      expect(response.code).to eq "201"
+      expect(response.code).to eq '201'
+    end
+
+    it 'should be a non-admin user' do
+      post :create, params: params
+      expect(User.last.role).to eq('teacher')
+    end
+
+    it 'should increase user count by 1' do
+      post :create, params: params
+      expect{ post :create, params: params }.to change{ User.count }.by(1)
     end
   end
 

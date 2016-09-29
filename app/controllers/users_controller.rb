@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-
   def show
-    head :not_found if !user
+    head :not_found unless user
     render json: user if user
   end
 
@@ -23,9 +22,14 @@ class UsersController < ApplicationController
   end
 
   def update
+    if user.update_attributes(user_params)
+      render json: user
+    else
+      head :bad_request
+    end
   end
 
-  private 
+  private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :password, :password_confirmation, :email)
   end

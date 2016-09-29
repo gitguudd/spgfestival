@@ -1,6 +1,9 @@
 class User < ApplicationRecord
+  include ActiveModel::ForbiddenAttributesProtection
 
   enum role: [:admin, :teacher]
+
+  has_many :students
 
   has_secure_password
 
