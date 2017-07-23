@@ -1,8 +1,7 @@
 class Registration < ApplicationRecord
   include ActiveModel::ForbiddenAttributesProtection
+  belongs_to :student
+  belongs_to :user
 
-  enum category: [:solo, :ensemble]
-  
-  has_many :students
-  has_many :pieces, class_name: "MusicalPiece"
+  has_many :musical_pieces
 end

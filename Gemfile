@@ -6,7 +6,7 @@ gem 'active_model_serializers'
 gem 'bcrypt', ' ~> 3.1.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.0.4'
 
 # Using postgresql as datastore
 gem 'pg'
@@ -36,7 +36,7 @@ group :development, :test do
 
   # we want to use rsspec and rspec-rails
   gem 'rspec'
-  gem 'rspec-rails', '3.1.0'
+  gem 'rspec-rails', '~> 3.5', '>= 3.5.2' 
 end
 
 group :development do

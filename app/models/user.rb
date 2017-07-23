@@ -3,7 +3,8 @@ class User < ApplicationRecord
 
   enum role: [:admin, :teacher]
 
-  has_many :students
+  has_many :registrations
+  has_many :students, through: :registrations
 
   has_secure_password
 
